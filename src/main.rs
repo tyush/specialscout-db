@@ -1,4 +1,3 @@
-#![feature(path_try_exists)]
 
 use actix_web::{
     self,
@@ -334,8 +333,8 @@ async fn main() -> std::io::Result<()> {
             e
         );
 
-        if let Ok(exists) = fs::try_exists(DB_FILE) {
-            if exists {
+        if fs::metadata(DB_FILE).is_ok() {
+            if fs::metadata(DB_FILE).is_ok() {
                 if let Err(e) = fs::copy(
                     DB_FILE,
                     format!(
