@@ -11,14 +11,14 @@ use sqlx::{
     Acquire,
     query,
     sqlite::{SqliteConnectOptions, SqlitePool},
-    ConnectOptions, Connection, Executor, pool::PoolConnection, Row, query_as,
+    ConnectOptions, Connection, Executor, pool::PoolConnection,
 };
 use std::{
     fs, io,
     time::{SystemTime, UNIX_EPOCH}, cmp::max
 };
 
-const IP: &str = "127.0.0.1:8080";
+const IP: &str = "0.0.0.0:80";
 const DB_FILE: &str = "db.sqlite";
 
 struct AppState {
